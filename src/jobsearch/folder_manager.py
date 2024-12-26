@@ -43,8 +43,8 @@ class LocalFolder(FolderManager):
 
 
 class CloudFolder(FolderManager):
-    def __init__(self, template_folder, working_folder=""):
-        super().__init__(working_folder, template_folder)
+    def __init__(self, template_folder):
+        super().__init__(working_folder='', template_folder=template_folder)
         self.provider = GoogleDrive()
 
     def get_files(self) -> list[GdriveFile]:
