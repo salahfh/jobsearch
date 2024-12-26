@@ -29,3 +29,9 @@ class LocalFolder(FolderManager):
         dir = self.working_folder / folder_name
         dir.mkdir(exist_ok=True, parents=True)
         return dir
+
+
+class GoogleDrive(FolderManager):
+    # Check this api client for more information
+    # https://github.com/googleapis/google-api-python-client/blob/main/docs/start.md
+    pass
