@@ -2,11 +2,12 @@
 # https://github.com/google-gemini/cookbook/blob/main/quickstarts/Prompting.ipynb
 from abc import ABC, abstractmethod
 from typing import NewType
-from pprint import pprint
 import os
 
 from dotenv import load_dotenv
 import google.generativeai as genai
+
+from jobsearch.prompts import prompt_composer
 
 
 load_dotenv() 
@@ -14,6 +15,7 @@ load_dotenv()
 
 AIResponse = NewType("AIResponse", str)
 AIQuery = NewType("AIQuery", str)
+
 
 
 class AI(ABC):
@@ -42,6 +44,11 @@ class Gemini(AI):
     def query_ai(self, query):
         response = self.model.generate_content(query)
         return response.text
+
+    def ask_ai_about_job(self, job_description: str) -> str:
+        query = prompt_composer(job_description)
+        return self.query_ai(query)
+
 
 
 if __name__ == '__main__':
