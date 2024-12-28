@@ -17,12 +17,25 @@ class SelectorType(Enum):
     LABEL = auto()
     ROLE = auto()
     TEXT = auto()
+    NONE = auto()
 
 
 @dataclass
 class PageClickElement:
-    value: str
     type: SelectorType
+    value: str = None
+    name: str = None
+
+    def __post_init__(self):
+        if self.value is None and self.type != SelectorType.NONE:
+            raise ValueError(
+                '"PageClickElement.value" cannot be empty when type is not "NONE"'
+            )
+
+        if self.type is SelectorType.ROLE and self.name is None:
+            raise ValueError(
+                '"PageClickElement.name" cannot be empty when type is not "ROLE"'
+            )
 
 
 class Browser:
@@ -59,16 +72,19 @@ class Browser:
     @staticmethod
     def pick_locator_function(
         page: Page, selector: PageClickElement
-    ) -> Callable[[str], Locator]:
+    ) -> Callable[[str], Locator] | None:
         match selector.type:
             case SelectorType.CSS_SELECTOR:
                 return page.query_selector
             case SelectorType.LABEL:
                 return page.get_by_label
             case SelectorType.ROLE:
-                return page.get_by_role
+                # Test it with deloit
+                return lambda role: page.get_by_role(role=role, name=selector.name).first()
             case SelectorType.TEXT:
                 return page.get_by_text
+            case SelectorType.NONE:
+                return None
 
 
 class WebPage:
@@ -83,13 +99,16 @@ class WebPage:
 
     def go_next_page(self, selector: PageClickElement) -> Self | None:
         select_func = Browser.pick_locator_function(self.page, selector)
+
+        if select_func is None:
+            return WebPage.EMPTY
         try:
             expect(select_func(selector.value)).to_be_visible()
+            select_func(selector.value).click()
+            self.page.wait_for_load_state("networkidle")
+            return self
         except AssertionError:
             return WebPage.EMPTY
-        select_func(selector.value).click()
-        self.page.wait_for_load_state("networkidle")
-        return self
 
     def goto_page(self, url: Url) -> Self:
         self.page.goto(url)
@@ -102,12 +121,11 @@ class WebPage:
     def parse_page(self) -> PageContent:
         return self.page.query_selector("body").inner_text()
 
-    def get_urls(self, pattern: str = r"\w+") -> list[Url]:
-        # url_pattern = fr'https?://{pattern}'
+    def get_urls(self, pattern: str = r"\w+") -> set[Url]:
         url_pattern = rf"{pattern}"
         links = self.page.locator("a").all()
         hrefs = [link.get_attribute("href") for link in links]
-        urls = [href for href in hrefs if re.search(url_pattern, href or "")]
+        urls = {str(href) for href in hrefs if re.search(url_pattern, href or "")}
         return urls
 
     def print_title(self) -> Self:

@@ -5,7 +5,7 @@
 # 3. Optionaly implement caching
 # 4. Have a retry option
 
-from jobsearch.scrapper.plugins import Manulife, CareersWebsite
+from jobsearch.scrapper.plugins import CareersWebsite, Manulife, DeloitCanada
 from jobsearch.scrapper.browser import WebPage, Url, Browser, PageContent
 
 
@@ -41,8 +41,10 @@ def test_manager():
 
 if __name__ == "__main__":
     carriersweb = Manulife()
+    # carriersweb = DeloitCanada()
     # b = Browser()
     # b.start_dev_mode(carriersweb.start_url)
+
     sm = ScrappingManager()
     urls = sm.get_job_urls(carriersweb)
     for i, url in enumerate(urls):
