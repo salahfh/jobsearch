@@ -21,5 +21,5 @@ Utility to help manage my job search.
 # Issues
 1. Resolve relative urls to absolute urls such as in the case of citylitics
 2. How to handle single page websites when the links are JS. Winnipeg City Jobs
-3. Add regex to match in label in Playwright
+3. [Done] Add regex to match in label in Playwright
 4. Add support for next page navigation by increasing digits. Canada Post
