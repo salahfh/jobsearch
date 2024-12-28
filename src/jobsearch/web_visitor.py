@@ -10,7 +10,8 @@ from jobsearch.ai import Gemini
 
 
 # URL = 'https://careers.manulife.com/global/en/job/JR24070803/Lead-Data-Engineer'
-URL = 'https://apply.workable.com/citylitics/j/2993E0AA9A/'
+# URL = 'https://apply.workable.com/citylitics/j/2993E0AA9A/'
+URL = 'https://www.jobbank.gc.ca/jobsearch/jobposting/42840079'
 
 gemini = Gemini()
 
