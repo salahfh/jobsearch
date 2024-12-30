@@ -1,5 +1,6 @@
 # Python demo
 # https://github.com/google-gemini/cookbook/blob/main/quickstarts/Prompting.ipynb
+from dataclasses import dataclass
 from abc import ABC, abstractmethod
 from typing import NewType, Callable
 import json
@@ -17,6 +18,18 @@ load_dotenv()
 
 AIResponse = NewType("AIResponse", str)
 AIQuery = NewType("AIQuery", str)
+
+
+@dataclass
+class Response:
+    _reponse: dict
+
+    def as_dict(self):
+        return json.loads(self._reponse)
+    
+    def as_str(self):
+        return json.dumps(self._reponse, separators=(',', ':'))
+
 
 
 class AI(ABC):
@@ -56,4 +69,4 @@ class Gemini(AI):
                 response_mime_type="application/json", response_schema=JobDetails
             ),
         )
-        return json.loads(result.text)
+        return Response(result.text)

@@ -6,6 +6,9 @@ from datetime import datetime
 from pydantic import BaseModel
 
 
+# TODO: NOT USED RIGHT NOW
+
+
 class SALARY(BaseModel):
     MIN: float
     MAX: float

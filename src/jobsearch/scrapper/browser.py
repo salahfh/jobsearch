@@ -5,6 +5,8 @@ from typing import Callable, NewType, TypeAlias, Self
 
 from playwright.sync_api import sync_playwright, Page, Locator, expect
 
+from jobsearch.patterns import SingletonMeta
+
 
 Url = NewType("Url", str)
 BrowserPage = NewType("BrowserPage", Page)
@@ -38,7 +40,11 @@ class PageClickElement:
             )
 
 
-class Browser:
+class Browser(metaclass=SingletonMeta):
+    def __init__(self):
+        self.browser = None
+        self.pages: list[Page] = []
+
     def start_dev_mode(self, url: Url):
         with sync_playwright() as p:
             browser = p.chromium.launch(headless=False)
@@ -47,27 +53,25 @@ class Browser:
             page.pause()
             browser.close()
 
-    def run_on_browser(self, steps: PageSteps):
-        # TODO: Make it async later
-        with sync_playwright() as p:
-            browser = p.chromium.launch(headless=False)
-            page = browser.new_page()
-            steps(page)
-            browser.close()
-
     def new_page(self) -> BrowserPage:
-        # run browser and return page.
-        # or open new tab if brower is open
-        try:
-            playwright = sync_playwright().start()
-            browser = playwright.chromium.launch(
-                headless=False, args=["--start-fullscreen"]
-            )
-            page = browser.new_page()
-            return page
-        finally:
-            # browser.close()
-            pass
+        if self.browser is None:
+            self.start_browser()
+        if len(self.pages) > 3:
+            for page in self.pages:
+                page.close()
+        page = self.browser.new_page()
+        self.pages.append(page)
+        return page
+
+    def start_browser(self):
+        playwright = sync_playwright().start()
+        browser = playwright.chromium.launch(
+            headless=False, args=["--start-fullscreen"]
+        )
+        self.browser = browser
+
+    def close_browser(self):
+        self.browser.close()
 
     @staticmethod
     def pick_locator_function(
@@ -145,3 +149,7 @@ class WebPage:
         # self.page.wait_for_load_state('networkidle')
         self.page.wait_for_timeout(time)
         return self
+    
+    def close_page(self) -> None:
+        self.page.close()
+        return WebPage.EMPTY

@@ -29,10 +29,13 @@ class ScrappingManager:
             content = self.page.get_urls(website.job_links_pattern)
             self.page = self.page.go_next_page(website.next_page_selector)
             urls.extend(content)
+        if self.page:
+            self.page.close_page()
         return urls
 
     def get_one_job_details(self, url: Url) -> PageContent:
         content = self.page.goto_page(url).wait_page().get_content()
+        self.page.close_page()
         return content
 
 
