@@ -18,9 +18,9 @@ class AIPrompts(Enum):
 
 
 class DataFormatingRules(Enum):
-    Date = "Format dates in this format YYYY-MM-DD"
-    MULTIPLE_NUMBER_VALUES = "Specify multiple numeric values as MIN and MAX fields"
-    NOT_FOUND_VALUES = "Not found values are specified as 'NULL'",
+    DATE = "Format dates in the ISO format."
+    JOB_DESCIRPTION_ONLY = "All information must come from the job descirption only."
+    # NOT_FOUND_VALUES = "Not found values are specified as 'NULL'",
 
 
 def merge_enums(en: Enum, sep: str='\n') -> str:
@@ -28,17 +28,15 @@ def merge_enums(en: Enum, sep: str='\n') -> str:
 
 
 def prompt_composer(details: str):
-    questions = merge_enums(AIPrompts)
     formating_rules = merge_enums(DataFormatingRules)
-    message  = [
-        "Analysis this job description, respond to those questions and return in a json format key: response.",
-        "The questions are:",
-        questions,
-        "The formating rules are as follow",
+    messages = [
+        "Analyse this job descirption and return details specified in the return schema.",
         formating_rules,
-        f"The job description: {details}",
+        f"The job description: {details}"
     ]
-    return '\n'.join(message)
+    return '\n'.join(messages)
+
+    
     
 
 if __name__ == '__main__':

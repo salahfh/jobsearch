@@ -2,7 +2,7 @@
 
 from playwright.sync_api import sync_playwright
 
-from jobsearch.ai import Gemini
+from jobsearch.ai.gemini import Gemini
 
 
 # logging.basicConfig()

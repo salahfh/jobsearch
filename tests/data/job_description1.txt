@@ -1,0 +1,93 @@
+Lead Data Engineer
+Available in 2 locations
+Category: Technology
+Posted Date: December 11th 2024
+widget: Full time
+undefined: Hybrid
+reqId: JR24070803
+Description
+
+The Opportunity
+
+Looking for a Lead Data Engineer to join the Canada Data Office here at Manulife!
+
+Lead engineer will enable the building, maintenance, enhancements, and support of new and existing Azure data pipelines for various analytical use cases inclusive of AI/ML/BI/GEN AI and reporting. You will lead and mentor a group of data engineers and partner with collaborators in understanding data and using it to serve our businesses and operations whilst ensuring alignment to Manulife’s IT security and risk guidelines.
+
+
+Responsibilities
+
+    Gain deep understanding of data by collaborating with business and advanced analytics partners; demonstrate the understanding to design, curate and publish connected data sets that enables users to self-serve.
+    Lead on ensuring our Azure applications in prod run within SLA and ensure their robustness and security.
+    Propose technology improvements or come up with innovative solutions to solve business problems.
+    Collaborate with Architecture, security and risk teams and implement latest guidelines and Azure standard methodologies.
+    Lead, mentor and guide data engineers to promote customer first approach.
+    Automate infrastructure provisioning and deployment using tools such as terraform.
+    Implement CI/CD pipelines that enables automated code deployment.
+    Participate in Agile sprints and ceremonies; supports rapid iteration and development.
+    Take lead in maintaining the inventory of critical data elements and lineage.
+    Cultivate and maintain strong relationships and fosters collaboration with various teams and partners within the organization.
+
+
+What motivates you?
+
+    You obsess about customers, listen, engage and act for their benefit.
+    You think big, with curiosity to discover ways to use your agile approach and enable business outcomes.
+    You thrive in teams and enjoy getting things done together.
+    You take ownership and build solutions, focusing on what matters.
+    You do what is right, work with integrity and speak up.
+    You share your humanity, helping us build a diverse and inclusive work environment for everyone.
+
+
+What we are looking for
+
+    Bachelor’s in computer/IT or data related fields required. Master’s degree is a plus.
+    10 + years of previous data engineering experience, with 5+ years of experience working in enabling azure related data technologies.
+    Solid understanding of Azure infrastructure; subscriptions, resource groups, resources, access control with RBAC (role-based access control), integrations with Azure AD and Azure security principles (user group, service principal, managed identity), network concepts (VNet, Subnet, NSG rules, private endpoints), password\credential\key management and data protection.
+    Strong hands-on knowledge of Azure Databricks, ADF, ADLS, Synapse Serverless/dedicated/spark pools, Python, PySpark, and T-SQL along with experience designing and developing scripts for ETL processes and automation in Azure Data Factory and Azure Databricks.
+    High proficiency in GIT/Jenkins/dev ops processes to maintain and resolve issues with data pipelines in prod. 
+    Knowledge of implementing azure technologies and networking via terraform along with ability to fix issues with Azure infrastructure in prod.
+    Good understanding of data modeling, data mart, data lakehouse architecture, SCD, data mesh and delta lake overall.
+    Solid understanding of data privacy and compliance regulations and standard methodologies for preserving customer data.
+
+What can we offer you?
+
+    A competitive salary and benefits packages.
+    A growth trajectory that extends upward and outward, encouraging you to follow your passions and learn new skills.
+    A focus on growing your career path with us.
+    Flexible work policies and strong work-life balance.
+    Professional development and leadership opportunities.
+
+
+Our commitment to you
+
+    Values-first culture: We lead with our Values every day and bring them to life together.
+    Boundless opportunity: We create opportunities to learn and grow at every stage of your career.
+    Continuous innovation: We invite you to help redefine the future of financial services.
+    Delivering the promise of Diversity, Equity and Inclusion:  We foster an inclusive workplace where everyone thrives.
+    Championing Corporate Citizenship: We build a business that benefits all partners and has a positive social and environmental impact.
+
+#LI-Hybrid
+
+About Manulife and John Hancock
+
+Manulife Financial Corporation is a leading international financial services provider, helping people make their decisions easier and lives better. To learn more about us, visit https://www.manulife.com/en/about/our-story.html.
+
+Manulife is an Equal Opportunity Employer
+
+At Manulife/John Hancock, we embrace our diversity. We strive to attract, develop and retain a workforce that is as diverse as the customers we serve and to foster an inclusive work environment that embraces the strength of cultures and individuals. We are committed to fair recruitment, retention, advancement and compensation, and we administer all of our practices and programs without discrimination on the basis of race, ancestry, place of origin, colour, ethnic origin, citizenship, religion or religious beliefs, creed, sex (including pregnancy and pregnancy-related conditions), sexual orientation, genetic characteristics, veteran status, gender identity, gender expression, age, marital status, family status, disability, or any other ground protected by applicable law.
+
+It is our priority to remove barriers to provide equal access to employment. A Human Resources representative will work with applicants who request a reasonable accommodation during the application process. All information shared during the accommodation request process will be stored and used in a manner that is consistent with applicable laws and Manulife/John Hancock policies. To request a reasonable accommodation in the application process, contact recruitment@manulife.com.
+
+Primary Location
+CAN, Ontario, Toronto, 200 Bloor Street East
+
+Working Arrangement
+
+Hybrid
+
+Salary range is expected to be between
+$107,730.00 CAD - $200,070.00 CAD
+
+If you are applying for this role outside of the primary location, please contact recruitment@manulife.com for the salary range for your location. The actual salary will vary depending on local market conditions, geography and relevant job-related factors such as knowledge, skills, qualifications, experience, and education/training. Employees also have the opportunity to participate in incentive programs and earn incentive compensation tied to business and individual performance.
+
+Manulife offers eligible employees a wide array of customizable benefits, including health, dental, mental health, vision, short- and long-term disability, life and AD&D insurance coverage, adoption/surrogacy and wellness benefits, and employee/family assistance plans. We also offer eligible employees various retirement savings plans (including pension and a global share ownership plan with employer matching contributions) and financial education and counseling resources. Our generous paid time off program in Canada includes holidays, vacation, personal, and sick days, and we offer the full range of statutory leaves of absence. If you are applying for this role in the U.S., please contact recruitment@manulife.com for more information about U.S.-specific paid time off provisions.

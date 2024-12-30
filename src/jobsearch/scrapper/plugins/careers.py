@@ -48,9 +48,7 @@ class Manulife(CareersWebsite):
 class Citylitics(CareersWebsite):
     def __init__(self):
         self.start_url = "https://apply.workable.com/citylitics/#jobs"
-        self.next_page_selector = PageClickElement(
-            value="", type=SelectorType.CSS_SELECTOR
-        )
+        self.next_page_selector = PageClickElement(type=SelectorType.NONE)
         self.job_links_pattern = r".*/j/.*"
         self.unique_job_url = True
 
@@ -121,6 +119,6 @@ class DeloitCanada(CareersWebsite):
         )
         self.job_links_pattern = r".*/job/.*"
         self.unique_job_url = True
-    
+
     def search_filter_steps(self, page):
-        page.wait_for_load_state('networkidle')
+        page.wait_for_load_state("networkidle")

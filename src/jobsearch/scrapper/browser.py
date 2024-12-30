@@ -80,7 +80,8 @@ class Browser:
                 return page.get_by_label
             case SelectorType.ROLE:
                 # Test it with deloit
-                return lambda role: page.get_by_role(role=role, name=selector.name).first()
+                # return lambda role: page.get_by_role(role=role, name=selector.name).first()
+                return page.get_by_role
             case SelectorType.TEXT:
                 return page.get_by_text
             case SelectorType.NONE:
@@ -118,7 +119,7 @@ class WebPage:
         steps(self.page)
         return self
 
-    def parse_page(self) -> PageContent:
+    def get_content(self) -> PageContent:
         return self.page.query_selector("body").inner_text()
 
     def get_urls(self, pattern: str = r"\w+") -> set[Url]:

@@ -328,6 +328,7 @@ dependencies = [
     { name = "google-api-python-client" },
     { name = "google-generativeai" },
     { name = "playwright" },
+    { name = "pydantic" },
     { name = "python-dotenv" },
 ]
 
@@ -341,6 +342,7 @@ requires-dist = [
     { name = "google-api-python-client", specifier = ">=2.156.0" },
     { name = "google-generativeai", specifier = ">=0.8.3" },
     { name = "playwright", specifier = ">=1.49.1" },
+    { name = "pydantic", specifier = ">=2.10.4" },
     { name = "python-dotenv", specifier = ">=1.0.1" },
 ]
 
